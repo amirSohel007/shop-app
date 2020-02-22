@@ -1,0 +1,82 @@
+<header>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand logo">
+        <img
+          src="https://marketplace.canva.com/MAB7lMeEYm8/1/thumbnail_large/canva-shopping-cart-icon--MAB7lMeEYm8.png">ShopingStor
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <!-- <li><a class="nav-item nav-link" href="">Home</a></li> -->
+          <li><a class="nav-item nav-link" href="">Products</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <img class="cart-bag" src="https://cdn.onlinewebfonts.com/svg/img_573021.png" alt="">
+              <span class="cart-badge"><a href="">{{itemCount?itemCount : '0'}}</a></span>
+            </a>
+            <ul class="dropdown-menu dropdown-cart" role="menu">
+              <li *ngFor="let whislist of getAllWhislist">
+                <a [routerLink]="['product', whislist.title]">
+                  <span class="item">
+                    <span class="item-left">
+                      <img
+                        src="https://rukminim1.flixcart.com/image/540/648/jwwffrk0/jean/f/x/5/32-2326-buynewtrend-original-imafhhjuz63abavp.jpeg?q=50"
+                        alt="" />
+                      <span class="item-info">
+                        <span>{{whislist.title}}</span>
+
+                        <span class="text-success">{{whislist.newprice}}</span>
+                      </span>
+                    </span>
+                  </span>
+                </a>
+              </li>
+
+              <div *ngIf="!itemCount" class="p-2 pt-3 text-center">
+                <p class="mb-1">You don't have favorite items.</p>
+                <img width="40px;" src="https://m.aapsworld.com/img/empty-cart-icon.png" alt="">
+              </div>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <img class="cart-bag"
+                src="https://cdn.iconscout.com/icon/free/png-256/handbag-bag-purse-shopping-online-cart-case-30430.png"
+                alt="">
+              <span class="cart-badge"><a href="">{{cartCount?cartCount:'0'}}</a></span>
+            </a>
+            <ul class="dropdown-menu dropdown-cart" role="menu">
+              <li *ngFor="let cartItem of totalAddItem; let i = index;">
+                <span class="item">
+                  <a [routerLink]="['product', cartItem.title]">
+                    <span class="item-left">
+                      <img [src]="cartItem.img" alt="" />
+                      <span class="item-info">
+                        <span>{{cartItem.title}}</span>
+                        <span class="text-success">{{cartItem.newprice}}</span>
+                        <button class="btn btn-secondary btn-sm">CHECKOUT</button>
+                      </span>
+                    </span>
+                  </a>
+                  <span class="item-right">
+                    <button class="btn btn-xs pull-right" (click)="removeCartItem(i)"><img src="assets/img/remove.png"
+                        alt=""></button>
+                  </span>
+                </span>
+              </li>
+              <div *ngIf="!cartCount" class="p-2 pt-3 text-center">
+                <p class="mb-1">You don't any iteam in cart yet</p>
+                <button class="btn btn-secondary btn-sm mt-3 pl-4 pr-4">SHOW NOW</button>
+              </div>
+            </ul>
+          </li>
+          <li><a class="nav-link">Register</a></li>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

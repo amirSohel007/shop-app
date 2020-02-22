@@ -1,0 +1,50 @@
+<section class="products-section inner-banner"></section>
+<section class="products-section ptb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="product-details-image">
+                    <img class="img-fluid" [src]="singleItem.img" alt="">
+                </div>
+            </div>
+            <div class="col-sm-7">
+                <div class="product-wrapper text-center">
+                    <div class="product-content">
+                        <h2>{{singleItem.title}}</h2>
+                        <p>{{singleItem.dec}}</p>
+                        <p class="mb-0"> <span class="text-success">New Price</span> :
+                            <span>{{singleItem.newprice * itemQuentity}}</span>
+                            <del>{{singleItem.price}}</del> </p>
+                        <p class="stock">in stock</p>
+                        <div class="row" style="padding: 20px 0;">
+                            <div class="align-items-baseline col-sm-5 d-flex inline-form">
+                                <label for="" style="width:150px">Quentity : </label>
+                                <input type="number" class="form-control" min="1" placeholder="1"
+                                    [(ngModel)]="itemQuentity">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inline-button d-flex justify-content-around">
+                        <button class="btn cart-btn btn-primary primary" (click)="addCart(singleItem)">Add to
+                            cart</button>
+                        <button class="btn cart-btn btn-secondary" (click)="checkoutItem(singleItem)">Checkout</button>
+                    </div>
+                    <div class="promo-code">
+                        <!-- <form [formGroup]="couponForm" (ngSubmit)="onSubmit()"> -->
+                            <label for="" class="text-info d-block">Apply '50DISCOUND' to get 50 of on your item
+                               </label>
+                            <input type="text" class="form-control" placeholder="APPLY COUPON" #coupon>
+                            <button class="btn btn-secondary" (click)="addCoupon(coupon)"
+                                >APPLY COUPON</button>
+                            <!-- <p class="d-block mt-2 error text-danger w-100"
+                                *ngIf="couponForm.controls['coupon'].hasError('required') && couponForm.controls['coupon'].touched">
+                                Please enter a coupon
+                            </p> -->
+                            <!-- <p *ngIf="validCoupon">valid applied</p> -->
+                        <!-- </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

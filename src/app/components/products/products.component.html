@@ -1,0 +1,30 @@
+<section class="products-section banner"></section>
+<section class="products-section ptb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="title-header">Women's jeans</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let item of productsItem; let i = index" class="col-sm-3">
+                <div class="product-wrapper text-center">
+                    <div class="product-image">
+                        <img class="img-fluid" [src]="item.img" alt="">
+                    </div>
+                    <div class="product-content">
+                        <h5>{{item.title}}</h5>
+                        <p class="mb-0"> Price : <span>{{item.newprice}}</span> <del>{{item.price}}</del> </p>
+                        <p class="stock">in stock</p>
+                        <div class="add-cart float-right cusror-pointer" (click)="addWhisList(item, i)">
+                            <img src="https://cdn.iconscout.com/icon/free/png-256/handbag-bag-purse-shopping-online-cart-case-30430.png"
+                                alt="">Add to wishlist
+                        </div>
+                    </div>
+                    <button class="btn w-100 cart-btn btn-secondary" (click)="gotoProductDetails(item)"> BUY
+                        NOW</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

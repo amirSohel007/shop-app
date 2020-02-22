@@ -1,0 +1,148 @@
+<section class="products-section inner-banner"></section>
+<section class="products-section ptb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="product-details-image">
+                   <h3 class="mb-4">Shpping Details</h3>
+                   <form action="">
+                           <div class="row">
+                               <div class="col-sm-12">
+                                   <div class="form-group">
+                                       <label for="">Name</label>
+                                       <input type="text" name="" id="" class="form-control" placeholder="Enter Name">
+                                    </div>
+                               </div>
+                           </div>
+                           <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="">Street</label>
+                                    <input type="text" name="" id="" class="form-control" placeholder="Street Address">
+                                 </div>
+                            </div>
+                           
+                           </div>
+
+                           <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">City</label>
+                                    <input type="text" name="" id="" class="form-control" placeholder="City Name">
+                                 </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">State</label>
+                                    <input type="text" name="" id="" class="form-control" placeholder="State Name">
+                                 </div>
+                            </div>
+                           </div>
+
+                           <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">Country</label>
+                                    <input type="text" name="" id="" class="form-control" placeholder="Country Name">
+                                 </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">Postel Code</label>
+                                    <input type="text" name="" id="" class="form-control" placeholder="Postal Code">
+                                 </div>
+                            </div>
+                           </div>
+                   <button class="btn btn-secondary cart-btn mt-3 w-100">Place Order</button>
+
+                   </form>
+
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="order-summary-box ml-4">
+                    <h5>Order Summary</h5>
+                    <div class="summary-body p-4">
+
+
+                        <div class="d-flex item-row justify-content-center">
+                            <div class="item-img">
+                                <img class="img-fluid" [src]="singleItem.img" alt="">
+                            </div>
+                            <div class="item-title">
+                                <h2>{{singleItem.title}}</h2>
+                                <p>Item Quentity : 1</p>
+                            </div>
+
+                            <div class="item-price text-right">
+                                <p class="mb-0">
+                                    <del class="d-block text-muted">{{singleItem.price}} /-</del>
+                                    <span>{{singleItem.newprice}} /-</span>
+                            </p>
+                            </div>
+                        </div>
+
+                        <div class="item-row ">
+                           
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h4>Shipping :</h4>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="mb-0 text-right">-</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h4>Text :</h4>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="mb-0 text-right">0</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h4>Promo code :</h4>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="mb-0 text-right">50/-</p>
+                                </div>
+                            </div>
+
+                              
+                            
+                            <div class="item-title">
+                                <h2></h2>
+                            </div>
+                        </div>
+
+                        <div class="item-row border-0 pb-0 mb-0">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h4>Total Amount:</h4>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="mb-0 text-right full-amount">870/-</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="promo-code"> -->
+                    <!-- <form [formGroup]="couponForm" (ngSubmit)="onSubmit()"> -->
+                    <!-- <label for="" class="text-info d-block">Apply '50DISCOUND' to get 50 of on your item
+                        </label>
+                        <input type="text" class="form-control" placeholder="APPLY COUPON">
+                        <button class="btn btn-secondary">APPLY COUPON</button> -->
+                    <!-- <p class="d-block mt-2 error text-danger w-100"
+                                *ngIf="couponForm.controls['coupon'].hasError('required') && couponForm.controls['coupon'].touched">
+                                Please enter a coupon
+                            </p> -->
+                    <!-- <p *ngIf="validCoupon">valid applied</p> -->
+                    <!-- </form> -->
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
