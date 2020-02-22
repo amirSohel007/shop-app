@@ -33,7 +33,7 @@ export class ProductsComponent implements OnInit {
 
   //push new whislist in localStroge
   addWhisList(item) {
-    item.isFav = true;
+    //item.isFav = true;
     let allItem = JSON.parse(localStorage.getItem('whislist'));
     var index = allItem.findIndex(res => res.id == item.id)
     if (index === -1) {
@@ -43,8 +43,8 @@ export class ProductsComponent implements OnInit {
       this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))
     }
     else {
-      allItem.item(index, false);
       allItem.splice(index, 1);
+      //allItem[index].isFav = false
       localStorage.setItem('whislist', JSON.stringify(allItem));
       this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))
     }
