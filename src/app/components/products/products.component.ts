@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DataShareService } from 'src/app/services/data-share.service';
 
 @Component({
@@ -10,9 +10,15 @@ import { DataShareService } from 'src/app/services/data-share.service';
 export class ProductsComponent implements OnInit {
   productsItem: any;
   isFavorite:Boolean = false;
-  constructor(private router: Router, private datashare: DataShareService) {
+  constructor(
+     private router: Router,
+     private datashare: DataShareService,
+     private route : ActivatedRoute
+    ) {
     this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))
     this.datashare.cartTotalItem.next(localStorage.getItem('cart'))
+    this.route.snapshot.params.title
+    debugger
   }
 
   ngOnInit(): void {
@@ -27,6 +33,7 @@ export class ProductsComponent implements OnInit {
 
   //push new whislist in localStroge
   addWhisList(item) {
+    item.isFav = true;
     let allItem = JSON.parse(localStorage.getItem('whislist'));
     var index = allItem.findIndex(res => res.id == item.id)
     if (index === -1) {
@@ -36,6 +43,7 @@ export class ProductsComponent implements OnInit {
       this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))
     }
     else {
+      allItem.item(index, false);
       allItem.splice(index, 1);
       localStorage.setItem('whislist', JSON.stringify(allItem));
       this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))

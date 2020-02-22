@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
   //set product list in localStroge
   setProducts() {

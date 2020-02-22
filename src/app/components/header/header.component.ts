@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Data } from '@angular/router';
+import { Data, ActivatedRoute } from '@angular/router';
 import { DataShareService } from 'src/app/services/data-share.service';
+import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-header',
@@ -12,12 +13,16 @@ export class HeaderComponent implements OnInit {
   cartCount = 0
   getAllWhislist: any;
   totalAddItem: any
-  constructor(private datashare: DataShareService) {
+  userInfo : any;
+  constructor(
+    private datashare: DataShareService,
+    ) {
     this.updateWhislistval()
     this.updateCartval()
+    this.getUserInfo();
   }
   ngOnInit(): void {
-
+    this.getUserInfo();
   }
 
   updateWhislistval() {
@@ -50,5 +55,9 @@ export class HeaderComponent implements OnInit {
     this.totalAddItem.splice(index,1);
     localStorage.setItem('cart', JSON.stringify(this.totalAddItem));
     this.datashare.cartTotalItem.next(localStorage.getItem('cart'));
+  }
+
+  getUserInfo(){
+    this.userInfo = JSON.parse(localStorage.getItem('userInfo'))
   }
 }

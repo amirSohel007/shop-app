@@ -6,6 +6,7 @@
       "newprice": 390,
       "id": 1,
       "img": "https://rukminim1.flixcart.com/image/540/648/jynat8w0/jean/g/h/b/28-2276-buynewtrend-original-imafgu6wpxwgafrh.jpeg?q=50",
+      "isFav":false,
       "dec": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. "
     },
     {
@@ -14,6 +15,7 @@
       "newprice": 320,
       "id": 2,
       "img": "https://rukminim1.flixcart.com/image/540/648/jynat8w0/jean/g/h/b/28-2276-buynewtrend-original-imafgu6wpxwgafrh.jpeg?q=50",
+      "isFav":false,
       "dec": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour"
     },
     {
@@ -22,6 +24,7 @@
       "newprice": 750,
       "id": 3,
       "img": "https://rukminim1.flixcart.com/image/540/648/jwwffrk0/jean/f/x/5/32-2326-buynewtrend-original-imafhhjuz63abavp.jpeg?q=50",
+      "isFav":false,
       "dec": "Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur"
     },
     {
@@ -30,6 +33,7 @@
       "newprice": 490,
       "id": 4,
       "img": "https://rukminim1.flixcart.com/image/540/648/jzfvma80/jean/b/m/3/28-rt3-t39-a-okay-original-imafjfxhyuncnzpt.jpeg?q=50",
+      "isFav":false,
       "dec": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable"
     }
   ],

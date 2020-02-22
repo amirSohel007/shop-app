@@ -3,17 +3,16 @@
         <div class="row justify-content-center">
             <div class="col-sm-4">
                 <div class="sing-up-wrapper">
-                    <form>
+                    <form [formGroup]="registerForm" (ngSubmit)="regsiter()">
                         <div class="form-group">
                             <label for="">Enter Full Name</label>
-                            <input type="text"  id="" class="form-control">
-                            
+                            <input type="text" formControlName="name" id="" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Enter Email</label>
-                            <input type="email"  id="" class="form-control">
+                            <input type="email" formControlName="email" id="" class="form-control">
                         </div>
-                        <button class="btn btn-secondary w-100">SIGN UP</button>
+                        <button class="btn btn-secondary w-100" [disabled]="!registerForm.valid" (ngSubmit)="regsiter()">SIGN UP</button>
                     </form>
                 </div>
             </div>

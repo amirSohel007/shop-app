@@ -17,7 +17,7 @@
                         <p class="mb-0"> Price : <span>{{item.newprice}}</span> <del>{{item.price}}</del> </p>
                         <p class="stock">in stock</p>
                         <div class="add-cart float-right cusror-pointer" (click)="addWhisList(item)">
-                            <i class="fa fa-heart-o"></i>Add to wishlist
+                            <i class="fa" [ngClass]="item.isFav?'fa-heart':'fa-heart-o'"></i>Add to wishlist
                         </div>
                     </div>
                     <button class="btn w-100 cart-btn btn-secondary" (click)="gotoProductDetails(item)"> BUY

@@ -73,7 +73,9 @@
               </div>
             </ul>
           </li>
-          <li><a class="nav-link">Register</a></li>
+          <li>
+            <a *ngIf="!userInfo" class="nav-link text-white">Register</a>
+            <a class="nav-link text-white" >Welcome {{userInfo.name}} !</a></li>
         </div>
       </div>
     </nav>
