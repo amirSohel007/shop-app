@@ -345,3 +345,13 @@ ul.dropdown-cart li .item-right button{
     position: relative;
     top: 8px;
 }
+
+.add-cart .fa {
+    position: relative;
+    top: 1px;
+    margin-right: 5px;
+}
+
+.add-cart .fa-heart {
+    color: #f51515;
+}
