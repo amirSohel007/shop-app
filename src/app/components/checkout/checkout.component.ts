@@ -18,6 +18,8 @@ export class CheckoutComponent implements OnInit {
       private datashare : DataShareService,
       private fb : FormBuilder)
       {
+    this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))
+    this.datashare.cartTotalItem.next(localStorage.getItem('cart'))
     this.itemTitle = this.route.snapshot.params.title.split('-').join(' ');
     this.getSingleItemDetails();
     

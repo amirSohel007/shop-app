@@ -19,18 +19,18 @@ export class RegisterComponent implements OnInit {
       name:['', Validators.required],
       email:['', Validators.required]
     })
+    this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))
+    this.datashare.cartTotalItem.next(localStorage.getItem('cart'))
    }
 
   ngOnInit(): void {
   }
 
   regsiter(){
-    debugger
     if(this.registerForm.valid) {
-      debugger
       localStorage.setItem('userInfo', JSON.stringify(this.registerForm.value));  
       JSON.parse(localStorage.getItem('userInfo'))
-        this.router.navigateByUrl('/products');
+       window.location.href = "/products";
     }
   }
 }
