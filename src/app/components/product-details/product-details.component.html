@@ -30,7 +30,7 @@
                         <button class="btn cart-btn btn-secondary" (click)="checkoutItem(singleItem)">Checkout</button>
                     </div>
                     <div class="promo-code">
-                        <!-- <form [formGroup]="couponForm" (ngSubmit)="onSubmit()"> -->
+                       <form [formGroup]="couponForm">
                             <label for="" class="text-info d-block">Apply '50DISCOUND' to get 50 of on your item
                                </label>
                             <input type="text" class="form-control" placeholder="APPLY COUPON" #coupon>
@@ -41,7 +41,7 @@
                                 Please enter a coupon
                             </p> -->
                             <!-- <p *ngIf="validCoupon">valid applied</p> -->
-                        <!-- </form> -->
+                        </form>
                     </div>
                 </div>
             </div>

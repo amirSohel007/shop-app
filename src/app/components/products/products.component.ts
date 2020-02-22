@@ -9,6 +9,7 @@ import { DataShareService } from 'src/app/services/data-share.service';
 })
 export class ProductsComponent implements OnInit {
   productsItem: any;
+  isFavorite:Boolean = false;
   constructor(private router: Router, private datashare: DataShareService) {
     this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))
     this.datashare.cartTotalItem.next(localStorage.getItem('cart'))
@@ -25,29 +26,22 @@ export class ProductsComponent implements OnInit {
   }
 
   //push new whislist in localStroge
-  addWhisList(item, index) {
+  addWhisList(item) {
     let allItem = JSON.parse(localStorage.getItem('whislist'));
-  //   for (var i = 0; i < allItem.length; i++) {
-  //     if (allItem[i].id === item.id) {
-  //       allItem.splice(i, 1);
-  //       alert('already in whislist')
-  //       localStorage.setItem('whislist', JSON.stringify(allItem));
-  //       this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))
-  //     }
-  // }
-  if (allItem.indexOf[index].id == item.id){
-    debugger
-    allItem.splice(index, 1);
-  }
-  else {
-    alert('else chla ab')
+    var index = allItem.findIndex(res => res.id == item.id)
+    if (index === -1) {
+      this.isFavorite = item.id;
+      allItem.push(item)
+      localStorage.setItem('whislist', JSON.stringify(allItem));
+      this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))
+    }
+    else {
+      allItem.splice(index, 1);
+      localStorage.setItem('whislist', JSON.stringify(allItem));
+      this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))
+    }
   }
 
-
-  // allItem.push(item)
-  // localStorage.setItem('whislist', JSON.stringify(allItem));
-  // this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))
-  }
   //remove space from title and send in route
   gotoProductDetails(item) {
     let handlePipeTitle = item.title.split(' ').join('-');

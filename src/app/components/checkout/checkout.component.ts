@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Data } from '@angular/router';
 import { DataShareService } from 'src/app/services/data-share.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -9,14 +10,24 @@ import { DataShareService } from 'src/app/services/data-share.service';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
+  checkoutForm : FormGroup
   singleItem : any;
   itemTitle : any;
-  constructor(private route : ActivatedRoute, private datashare : DataShareService) {
+  constructor(
+      private route : ActivatedRoute,
+      private datashare : DataShareService,
+      private fb : FormBuilder)
+      {
     this.itemTitle = this.route.snapshot.params.title.split('-').join(' ');
-    this.getSingleItemDetails()
+    this.getSingleItemDetails();
+    
    }
 
   ngOnInit(): void {
+    this.checkoutForm = this.fb.group({
+      name:'',
+    })
+    this.checkoutForm.valueChanges.subscribe(res => console.log(res))
   }
 
   getSingleItemDetails() {
