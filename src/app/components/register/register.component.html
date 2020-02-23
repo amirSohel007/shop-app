@@ -1,8 +1,8 @@
-<section class="ptb-80">
+<section class="sign-up-bg">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-sm-4">
-                <div class="sing-up-wrapper">
+        <div class="row justify-content-center align-items-center" style="height: calc(100vh - 90px);">
+            <div class="col-sm-5">
+                <div class="sing-up-wrapper bg-white">
                     <form [formGroup]="registerForm" (ngSubmit)="regsiter()">
                         <div class="form-group">
                             <label for="">Enter Full Name</label>
@@ -12,7 +12,8 @@
                             <label for="">Enter Email</label>
                             <input required type="email" formControlName="email" id="" class="form-control">
                         </div>
-                        <button class="btn btn-secondary w-100" [disabled]="!registerForm.valid" (ngSubmit)="regsiter()">SIGN UP</button>
+                        <button class="btn btn-secondary w-100" [disabled]="!registerForm.valid"
+                            (ngSubmit)="regsiter()">SIGN UP</button>
                     </form>
                 </div>
             </div>

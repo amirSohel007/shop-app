@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { DataShareService } from 'src/app/services/data-share.service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product-details',
@@ -14,6 +14,7 @@ export class ProductDetailsComponent implements OnInit {
   itemQuentity: any;
   appliedCoupon: Boolean = true;
   validCoupon: any;
+  promoForm: FormGroup
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -28,25 +29,35 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-
-  applyCoupon(item, coupon) {
-    this.validCoupon.find(cop => {
-      if (cop == coupon.value) {
-        this.singleItem.newprice = this.singleItem.newprice - 50;
-        //get all products from local stroge
-        let allPro = JSON.parse(localStorage.getItem('products'))
-        allPro.forEach(element => {
-          if (element.id === item.id) {
-            element.promo = true;
-            element.newprice = this.singleItem.newprice;
-            localStorage.setItem('products', JSON.stringify(allPro))
-            window.location.reload();
-          }
-        });
-      }
+    this.promoForm = this.fb.group({
+      coupon: ['', Validators.required]
     })
   }
+
+  applyCoupon(item) {
+    let inputVal = this.promoForm.controls.coupon.value
+    if (inputVal) {
+      this.validCoupon.find(cop => {
+        if (cop == inputVal) {
+          this.singleItem.newprice = this.singleItem.newprice - 50;
+          //get all products from local stroge
+          let allPro = JSON.parse(localStorage.getItem('products'))
+          allPro.forEach(element => {
+            if (element.id === item.id) {
+              element.promo = true;
+              element.newprice = this.singleItem.newprice;
+              localStorage.setItem('products', JSON.stringify(allPro))
+              window.location.reload();
+            }
+          });
+        }
+      })
+    }
+    else {
+      alert('please enter value')
+    }
+  }
+
   //push new whislist in localStroge
   addCart(item) {
     let allItem = JSON.parse(localStorage.getItem('cart'))
