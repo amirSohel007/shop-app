@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataShareService } from 'src/app/services/data-share.service';
 import { Location } from '@angular/common'
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -58,8 +57,6 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-
-
   //remove cart items and update in localStroge and service observable
   removeCartItem(index) {
     let getAllCartItem = localStorage.getItem('cart');
@@ -71,15 +68,13 @@ export class HeaderComponent implements OnInit {
     this.totalAddItem.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(this.totalAddItem));
     this.datashare.cartTotalItem.next(localStorage.getItem('cart'));
-
   }
-
 
   getUserInfo() {
     this.userInfo = JSON.parse(localStorage.getItem('userInfo'))
   }
-
-  logout(){
+  
+  logout() {
     localStorage.clear();
     window.location.href = "/products";
   }

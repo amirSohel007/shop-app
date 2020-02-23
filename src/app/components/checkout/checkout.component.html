@@ -78,7 +78,6 @@
                                 Order</button>
                         </form>
                     </div>
-
                     <div *ngIf="isAdress" class="order-summary-box ml-4">
                         <h5>Added Address</h5>
                         <div class="summary-body p-4">
@@ -139,9 +138,6 @@
                         <button class="btn btn-secondary cart-btn mt-3 w-100" (click)="gotoPayment()">Place
                             Order</button>
                     </div>
-                    
-
-
                 </div>
             </div>
             <div class="col-sm-5">
@@ -154,12 +150,14 @@
                             </div>
                             <div class="item-title">
                                 <h2>{{singleItem.title}}</h2>
-                                <p>Item Quentity : 1</p>
+                                <p class="mb-1">Item Quentity : 1</p>
+                                <p *ngIf="singleItem.promo" class="mb-0 text-success" style="font-size: 12px;">Promo
+                                    applied of 50/-</p>
                             </div>
                             <div class="item-price text-right">
                                 <p class="mb-0">
-                                    <del class="d-block text-muted">{{singleItem.price}} /-</del>
-                                    <span>{{singleItem.newprice}} /-</span>
+                                    <del class="d-block text-muted">₹{{singleItem.price}} /-</del>
+                                    <span>₹{{singleItem.newprice}} /-</span>
                                 </p>
                             </div>
                         </div>
@@ -185,7 +183,7 @@
                                     <h4>Promo code :</h4>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p class="mb-0 text-right">50/-</p>
+                                    <p class="mb-0 text-right">₹{{singleItem.promo?50:0}}/-</p>
                                 </div>
                             </div>
                             <div class="item-title">
@@ -198,7 +196,7 @@
                                     <h4>Total Amount:</h4>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p class="mb-0 text-right full-amount">{{singleItem.newprice}}/-</p>
+                                    <p class="mb-0 text-right full-amount">₹{{singleItem.newprice}}/-</p>
                                 </div>
                             </div>
                         </div>

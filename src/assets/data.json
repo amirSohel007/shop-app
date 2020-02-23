@@ -2,64 +2,64 @@
   "products": [
     {
       "title": "Acer Swift 3 Core i5 8th Gen",
-      "price": "₹55,990",
-      "newprice": "₹53,990",
+      "price": 55990,
+      "newprice": 53990,
       "id": 1,
       "img": "https://rukminim1.flixcart.com/image/832/832/k33c4nk0pkrrdj/computer/y/h/k/acer-na-thin-and-light-laptop-original-imafhnvjheyngmvq.jpeg?q=70",
       "dec": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. "
     },
     {
       "title": "Dell 14 3000 Core i3 7th Gen",
-      "price": "₹30,490",
-      "newprice": "₹25,490",
+      "price": 30490,
+      "newprice": 25490,
       "id": 3,
       "img": "https://rukminim1.flixcart.com/image/832/832/k3xcdjk0pkrrdj/computer/h/y/c/dell-na-laptop-original-imafghfndqdm4rjt.jpeg?q=70",
       "dec": "Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur"
     },
     {
       "title": "Lenovo Ideapad S145 3 Dual",
-      "price": "₹30,990",
-      "newprice": "₹25,990",
+      "price": 30990,
+      "newprice": 25990,
       "id": 4,
       "img": "https://rukminim1.flixcart.com/image/832/832/jykfxjk0/computer/t/p/r/acer-na-gaming-laptop-original-imafgs3cqy9sam6w.jpeg?q=70",
       "dec": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable"
     },
     {
       "title": "Lenovo Ideapad 330 Ryzen",
-      "price": "₹32,990",
-      "newprice": "₹29,990",
+      "price": 32990,
+      "newprice": 29990,
       "id": 5,
       "img": "https://rukminim1.flixcart.com/image/832/832/jmz7csw0/computer/4/c/t/lenovo-na-laptop-original-imaf9ry4vqyh8fhv.jpeg?q=70",
       "dec": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable"
     },
     {
       "title": "Lenovo Ideapad L340 Core i5",
-      "price": "₹58,240",
-      "newprice": "₹49,990",
+      "price": 58240,
+      "newprice": 49990,
       "id": 2,
       "img": "https://rukminim1.flixcart.com/image/832/832/jz7az680/computer/b/m/s/lenovo-na-laptop-original-imafj6qwdhefhbdc.jpeg?q=70",
       "dec": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour"
     },
     {
       "title": "Asus VivoBook Gaming i5",
-      "price": "₹58,990",
-      "newprice": "₹54,990",
+      "price": 58990,
+      "newprice": 54990,
       "id": 6,
       "img": "https://rukminim1.flixcart.com/image/832/832/k55n0y80/computer/u/v/6/asus-na-gaming-laptop-original-imafnf96vnrexbnd.jpeg?q=70",
       "dec": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable"
     },
     {
       "title": "Lenovo Ideapad L340 i5",
-      "price": "₹64,990",
-      "newprice": "₹59,990",
+      "price": 64990,
+      "newprice": 59990,
       "id": 7,
       "img": "https://rukminim1.flixcart.com/image/832/832/jzk5xu80/computer/y/u/h/lenovo-na-gaming-laptop-original-imafjjj4wuudpbyn.jpeg?q=70",
       "dec": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable"
     },
     {
       "title": "Asus Ryzen 5 Quad Core",
-      "price": "₹35,990",
-      "newprice": "₹32,990",
+      "price": 35990,
+      "newprice": 32990,
       "id": 8,
       "img": "https://rukminim1.flixcart.com/image/832/832/jzrb53k0/computer/q/a/t/asus-na-laptop-original-imafjhu7sbtwzwz9.jpeg?q=70",
       "dec": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable"

@@ -9,13 +9,13 @@ import { DataShareService } from 'src/app/services/data-share.service';
 })
 export class ProductsComponent implements OnInit {
   productsItem: any;
-  isFavorite:Boolean = false;
+  isFavorite: Boolean = false;
   favItems = new Array<any>();
   constructor(
-     private router: Router,
-     private datashare: DataShareService,
-     private route : ActivatedRoute
-    ) {
+    private router: Router,
+    private datashare: DataShareService,
+    private route: ActivatedRoute
+  ) {
     this.showProducts();
     this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))
     this.datashare.cartTotalItem.next(localStorage.getItem('cart'))
@@ -27,13 +27,13 @@ export class ProductsComponent implements OnInit {
     this.fetchFavItems();
   }
 
-  fetchFavItems() { 
-    this.favItems = JSON.parse(localStorage.getItem('whislist')); 
+  fetchFavItems() {
+    this.favItems = JSON.parse(localStorage.getItem('whislist'));
   }
 
   // Boolean function to determine if particular product is amongst user's favourite list or not
-  isFavourite(itemId) : boolean { 
-    return this.favItems.findIndex(i => i.id == itemId) > -1; 
+  isFavourite(itemId): boolean {
+    return this.favItems.findIndex(i => i.id == itemId) > -1;
   }
 
   //getting all the products from localStroge
@@ -57,8 +57,8 @@ export class ProductsComponent implements OnInit {
       allItem.splice(index, 1);
       // removing the same item from favitemlist (if exists) 
       let favItemIndex = this.favItems.findIndex(i => i.id == item.id);
-      if(favItemIndex > -1)
-      this.favItems.splice(favItemIndex, 1);
+      if (favItemIndex > -1)
+        this.favItems.splice(favItemIndex, 1);
       localStorage.setItem('whislist', JSON.stringify(allItem));
       this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))
     }

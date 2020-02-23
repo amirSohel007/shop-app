@@ -79,7 +79,7 @@
           </li>
 
             <li class="dropdown">
-              <a class="nav-link text-white cusror-pointer" data-toggle="dropdown" role="button" aria-expanded="false">Welcome {{userInfo.name}} !</a>
+              <a class="nav-link text-white cusror-pointer" data-toggle="dropdown" role="button" aria-expanded="false">Welcome {{userInfo &&userInfo.name}} !</a>
               <ul class="dropdown-menu dropdown-cart user-menu" role="menu">
                <li><a class="nav-link over-white cusror-pointer" (click)="logout()">Sign Out</a></li>
              </ul>

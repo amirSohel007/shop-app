@@ -15,14 +15,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
   //set product list in localStroge
   setProducts() {
-    this.datashare.setItems().subscribe(data => {
-      let products = JSON.stringify(data['products'])
-      localStorage.setItem('products', products)
-    })
+    if (localStorage.getItem('products') == null) {
+      this.datashare.setItems().subscribe(data => {
+        let products = JSON.stringify(data['products'])
+        localStorage.setItem('products', products)
+      })
+    }
   }
 
   //initialize blank whislist arrya for first time

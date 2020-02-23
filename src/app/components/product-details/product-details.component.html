@@ -13,8 +13,8 @@
                         <h2>{{singleItem.title}}</h2>
                         <p>{{singleItem.dec}}</p>
                         <p class="mb-0"> <span class="text-success">New Price</span> :
-                            <span>{{singleItem.newprice}}</span>
-                            <del>{{singleItem.price}}</del> </p>
+                            <span>₹{{singleItem.newprice}}</span>
+                            <del>₹{{singleItem.price}}</del> </p>
                         <p class="stock">in stock</p>
                         <div class="row" style="padding: 20px 0;">
                             <div class="align-items-baseline col-sm-5 d-flex inline-form">
@@ -30,15 +30,13 @@
                         <button class="btn cart-btn btn-secondary" (click)="checkoutItem(singleItem)">Checkout</button>
                     </div>
                     <div class="promo-code">
-                            <label for="" class="text-info d-block">Apply '50DISCOUND' to get 50 of on your item
-                               </label>
-                            <input type="text" class="form-control" placeholder="APPLY COUPON" #coupon>
-                            <button class="btn btn-secondary" (click)="applyCoupon(coupon)">APPLY COUPON</button>
-                            <!-- <p class="d-block mt-2 error text-danger w-100"
-                                *ngIf="couponForm.controls['coupon'].hasError('required') && couponForm.controls['coupon'].touched">
-                                Please enter a coupon
-                            </p> -->
-                            <!-- <p *ngIf="validCoupon">valid applied</p>-->
+                        <label for="" class="text-info d-block">Apply '50DISCOUNT' to get 50 off on your item </label>
+                        <input type="text" class="form-control" placeholder="APPLY COUPON" #coupon>
+                        <button class="btn btn-secondary" (click)="applyCoupon(singleItem, coupon)">APPLY
+                            COUPON</button>
+                        <p class="d-block mt-2 error text-success w-100" style="font-size: 13px;"
+                            *ngIf="singleItem.promo">Your coupon ''50DISCOUNT has been applied.</p>
+                        <!-- <p *ngIf="validCoupon">valid applied</p>-->
                     </div>
                 </div>
             </div>

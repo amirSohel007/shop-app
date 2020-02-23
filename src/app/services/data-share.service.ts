@@ -17,8 +17,6 @@ export class DataShareService {
     return products
   }
 
-
-
   setWishlist() {
     return this.http.get(this.dataSource)
   }

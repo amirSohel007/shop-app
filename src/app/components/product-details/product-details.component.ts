@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { DataShareService } from 'src/app/services/data-share.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-product-details',
@@ -11,33 +12,40 @@ export class ProductDetailsComponent implements OnInit {
   singleItem: any;
   itemTitle: any;
   itemQuentity: any;
-  availCoupon: any;
-  coupons: any;
+  appliedCoupon: Boolean = true;
+  validCoupon: any;
   constructor(
     private route: ActivatedRoute,
+    private fb: FormBuilder,
     private datashare: DataShareService,
     private router: Router) {
     this.datashare.favWhislistCount.next(localStorage.getItem('whislist'));
-    this.datashare.cartTotalItem.next(localStorage.getItem('cart'))
+    this.datashare.cartTotalItem.next(localStorage.getItem('cart'));
     this.itemTitle = this.route.snapshot.params.title.split('-').join(' ');
-    this.getSingleItemDetails()
+    this.getSingleItemDetails();
     this.itemQuentity = 1;
-    this.coupons = "50DISCOUNT"
+    this.validCoupon = ['50DISCOUNT', 'NEWUSER50']
   }
 
   ngOnInit(): void {
-
   }
 
-
-  applyCoupon(coupon) {
-    let userCoupon = coupon.value;
-    if (userCoupon === "50DISCOUN") {
-      alert('mil gya')
-    }
-    else {
-      alert('nai mila')
-    }
+  applyCoupon(item, coupon) {
+    this.validCoupon.find(cop => {
+      if (cop == coupon.value) {
+        this.singleItem.newprice = this.singleItem.newprice - 50;
+        //get all products from local stroge
+        let allPro = JSON.parse(localStorage.getItem('products'))
+        allPro.forEach(element => {
+          if (element.id === item.id) {
+            element.promo = true;
+            element.newprice = this.singleItem.newprice;
+            localStorage.setItem('products', JSON.stringify(allPro))
+            window.location.reload();
+          }
+        });
+      }
+    })
   }
   //push new whislist in localStroge
   addCart(item) {
@@ -63,7 +71,7 @@ export class ProductDetailsComponent implements OnInit {
   checkoutItem(item) {
     let handlePipeTitle = item.title.split(' ').join('-');
     this.router.navigate(['./product/', handlePipeTitle, '/checkout'])
-    //got all cart item here
+    //fetch all cart item here
     let getAllCartItem = JSON.parse(localStorage.getItem('cart'))
     var index = getAllCartItem.findIndex(res => res.id == item.id)
     if (index === -1) {
