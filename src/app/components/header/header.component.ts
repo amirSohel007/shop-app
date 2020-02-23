@@ -78,4 +78,10 @@ export class HeaderComponent implements OnInit {
     localStorage.clear();
     window.location.href = "/products";
   }
+
+  //whislist and cart both list item will redirect from here on their own single item page
+  gotoProductDetails(route){
+    let handlePipeTitle = route.title.split(' ').join('-');
+    window.location.href = "./product/"+ handlePipeTitle
+  }
 }

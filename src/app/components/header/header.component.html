@@ -19,15 +19,12 @@
             </a>
             <ul class="dropdown-menu dropdown-cart" role="menu">
               <li *ngFor="let whislist of getAllWhislist">
-                <a [routerLink]="['product', whislist.title]">
+                <a (click)="gotoProductDetails(whislist)">
                   <span class="item">
                     <span class="item-left">
-                      <img
-                        src="https://rukminim1.flixcart.com/image/540/648/jwwffrk0/jean/f/x/5/32-2326-buynewtrend-original-imafhhjuz63abavp.jpeg?q=50"
-                        alt="" />
+                      <img [src]="whislist.img" alt="" />
                       <span class="item-info">
                         <span>{{whislist.title}}</span>
-
                         <span class="text-success">{{whislist.newprice}}</span>
                       </span>
                     </span>
@@ -51,13 +48,12 @@
             <ul class="dropdown-menu dropdown-cart" role="menu">
               <li *ngFor="let cartItem of totalAddItem; let i = index;">
                 <span class="item">
-                  <a [routerLink]="['product', cartItem.title]">
+                  <a (click)="gotoProductDetails(cartItem)">
                     <span class="item-left">
                       <img [src]="cartItem.img" alt="" />
                       <span class="item-info">
                         <span>{{cartItem.title}}</span>
                         <span class="text-success">{{cartItem.newprice}}</span>
-                        <button class="btn btn-secondary btn-sm">CHECKOUT</button>
                       </span>
                     </span>
                   </a>
@@ -78,12 +74,13 @@
             <a routerLink="/register" class="nav-link text-white cusror-pointer">Register</a>
           </li>
 
-            <li class="dropdown">
-              <a class="nav-link text-white cusror-pointer" data-toggle="dropdown" role="button" aria-expanded="false">Welcome {{userInfo &&userInfo.name}} !</a>
-              <ul class="dropdown-menu dropdown-cart user-menu" role="menu">
-               <li><a class="nav-link over-white cusror-pointer" (click)="logout()">Sign Out</a></li>
-             </ul>
-            </li>
+          <li *ngIf="userInfo" class="dropdown">
+            <a class="nav-link text-white cusror-pointer" data-toggle="dropdown" role="button"
+              aria-expanded="false">Welcome {{userInfo &&userInfo.name}} !</a>
+            <ul class="dropdown-menu dropdown-cart user-menu" role="menu">
+              <li><a class="nav-link over-white cusror-pointer" (click)="logout()">Sign Out</a></li>
+            </ul>
+          </li>
         </div>
       </div>
     </nav>
