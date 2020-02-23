@@ -19,7 +19,7 @@
             </a>
             <ul class="dropdown-menu dropdown-cart" role="menu">
               <li *ngFor="let whislist of getAllWhislist">
-                <a (click)="gotoProductDetails(whislist)">
+                <a (click)="gotoProductDetails(whislist)" class="cusror-pointer">
                   <span class="item">
                     <span class="item-left">
                       <img [src]="whislist.img" alt="" />
@@ -31,7 +31,6 @@
                   </span>
                 </a>
               </li>
-
               <div *ngIf="!itemCount" class="p-2 pt-3 text-center">
                 <p class="mb-1">You don't have favorite items.</p>
                 <img width="40px;" src="https://m.aapsworld.com/img/empty-cart-icon.png" alt="">
@@ -48,7 +47,7 @@
             <ul class="dropdown-menu dropdown-cart" role="menu">
               <li *ngFor="let cartItem of totalAddItem; let i = index;">
                 <span class="item">
-                  <a (click)="gotoProductDetails(cartItem)">
+                  <a (click)="gotoProductDetails(cartItem)" class="cusror-pointer">
                     <span class="item-left">
                       <img [src]="cartItem.img" alt="" />
                       <span class="item-info">
