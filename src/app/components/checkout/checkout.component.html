@@ -6,7 +6,7 @@
                 <div class="product-details-image">
                     <div class="shipping-wrapper" *ngIf="!isAdress">
                         <h3 class="mb-4">Shpping Details</h3>
-                        <form [formGroup]="checkoutForm" (ngSubmit)="orderPlace(singleItem)">
+                        <form [formGroup]="checkoutForm" (ngSubmit)="orderPlace()">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-group">
@@ -73,7 +73,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-secondary cart-btn mt-3 w-100" (ngSubmit)="orderPlace(singleItem)"
+                            <button class="btn btn-secondary cart-btn mt-3 w-100" (ngSubmit)="orderPlace()"
                                 [disabled]="!checkoutForm.valid">Place
                                 Order</button>
                         </form>

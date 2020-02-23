@@ -47,6 +47,9 @@ export class CheckoutComponent implements OnInit {
       return result.title == this.itemTitle
     })
   }
+  gotoPayment(){
+    window.location.href = "/payment-mode";
+  }
 
   isAddress(){
     if(localStorage.getItem('shipping')){
@@ -56,11 +59,10 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
-  orderPlace(item){
+  orderPlace(){
       localStorage.setItem('shipping', JSON.stringify(this.checkoutForm.value));
+      window.location.href = "/payment-mode";
   }
 
-  gotoPayment(){
-    window.location.href = "/payment-mode";
-  }
+ 
 }

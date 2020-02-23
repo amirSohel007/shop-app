@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Data, ActivatedRoute, Router, ActivationEnd } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataShareService } from 'src/app/services/data-share.service';
-import { Route } from '@angular/compiler/src/core';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-header',
@@ -13,16 +13,22 @@ export class HeaderComponent implements OnInit {
   cartCount = 0
   getAllWhislist: any;
   totalAddItem: any
-  userInfo : any;
-  location : any;
+  userInfo: any;
+  iscartPage: any
   constructor(
     private datashare: DataShareService,
-    private router : Router,
-    private route : ActivatedRoute
-    ) {
+    private router: Router,
+    private route: ActivatedRoute,
+    private location: Location
+  ) {
     this.updateWhislistval()
     this.updateCartval()
     this.getUserInfo();
+    router.events.subscribe(val => {
+      if (location.path() != "") {
+        this.iscartPage = location.path();
+      }
+    });
   }
   ngOnInit(): void {
     this.getUserInfo();
@@ -32,7 +38,6 @@ export class HeaderComponent implements OnInit {
     this.datashare.favWhislistCount.subscribe(res => {
       if (res == null) {
         this.datashare.favWhislistCount.next(0)
-        
       }
       else {
         this.getAllWhislist = JSON.parse(res);
@@ -53,14 +58,29 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-//remove cart items and update in localStroge and service observable
+
+
+  //remove cart items and update in localStroge and service observable
   removeCartItem(index) {
-    this.totalAddItem.splice(index,1);
+    let getAllCartItem = localStorage.getItem('cart');
+    let ItemLength = JSON.parse(getAllCartItem).length;
+    if (this.iscartPage.includes('checkout') && ItemLength == 1) {
+      //check if you don't have any item in your cart
+      this.location.back();
+    }
+    this.totalAddItem.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(this.totalAddItem));
     this.datashare.cartTotalItem.next(localStorage.getItem('cart'));
+
   }
 
-  getUserInfo(){
+
+  getUserInfo() {
     this.userInfo = JSON.parse(localStorage.getItem('userInfo'))
+  }
+
+  logout(){
+    localStorage.clear();
+    window.location.href = "/products";
   }
 }

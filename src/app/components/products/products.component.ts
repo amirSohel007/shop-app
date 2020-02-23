@@ -16,13 +16,13 @@ export class ProductsComponent implements OnInit {
      private datashare: DataShareService,
      private route : ActivatedRoute
     ) {
+    this.showProducts();
     this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))
     this.datashare.cartTotalItem.next(localStorage.getItem('cart'))
     this.route.snapshot.params.title
   }
 
   ngOnInit(): void {
-    this.showProducts();
     // Getting all the favourite items initially 
     this.fetchFavItems();
   }

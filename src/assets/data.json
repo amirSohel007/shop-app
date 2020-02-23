@@ -9,14 +9,6 @@
       "dec": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. "
     },
     {
-      "title": "HP Pavilion 15-EC 5 Quad Core",
-      "price": "₹58,240",
-      "newprice": "₹49,990",
-      "id": 2,
-      "img": "https://rukminim1.flixcart.com/image/832/832/k3g73bk0/computer/x/4/h/hp-na-gaming-laptop-original-imafmcwzbga7kqaj.jpeg?q=70",
-      "dec": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour"
-    },
-    {
       "title": "Dell 14 3000 Core i3 7th Gen",
       "price": "₹30,490",
       "newprice": "₹25,490",
@@ -39,6 +31,14 @@
       "id": 5,
       "img": "https://rukminim1.flixcart.com/image/832/832/jmz7csw0/computer/4/c/t/lenovo-na-laptop-original-imaf9ry4vqyh8fhv.jpeg?q=70",
       "dec": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable"
+    },
+    {
+      "title": "Lenovo Ideapad L340 Core i5",
+      "price": "₹58,240",
+      "newprice": "₹49,990",
+      "id": 2,
+      "img": "https://rukminim1.flixcart.com/image/832/832/jz7az680/computer/b/m/s/lenovo-na-laptop-original-imafj6qwdhefhbdc.jpeg?q=70",
+      "dec": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour"
     },
     {
       "title": "Asus VivoBook Gaming i5",

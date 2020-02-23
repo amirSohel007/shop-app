@@ -73,9 +73,17 @@
               </div>
             </ul>
           </li>
-          <li>
-            <a routerLink="/register" *ngIf="!userInfo" class="nav-link text-white cusror-pointer">Register</a>
-            <a class="nav-link text-white" >Welcome {{userInfo.name}} !</a></li>
+
+          <li *ngIf="!userInfo">
+            <a routerLink="/register" class="nav-link text-white cusror-pointer">Register</a>
+          </li>
+
+            <li class="dropdown">
+              <a class="nav-link text-white cusror-pointer" data-toggle="dropdown" role="button" aria-expanded="false">Welcome {{userInfo.name}} !</a>
+              <ul class="dropdown-menu dropdown-cart user-menu" role="menu">
+               <li><a class="nav-link over-white cusror-pointer" (click)="logout()">Sign Out</a></li>
+             </ul>
+            </li>
         </div>
       </div>
     </nav>
