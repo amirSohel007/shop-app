@@ -20,7 +20,8 @@ export class CheckoutComponent implements OnInit {
       private route : ActivatedRoute,
       private datashare : DataShareService,
       private fb : FormBuilder,
-      private router : Router)
+      private router : Router,
+      )
       {
     this.datashare.favWhislistCount.next(localStorage.getItem('whislist'))
     this.datashare.cartTotalItem.next(localStorage.getItem('cart'))
@@ -57,9 +58,9 @@ export class CheckoutComponent implements OnInit {
 
   orderPlace(item){
       localStorage.setItem('shipping', JSON.stringify(this.checkoutForm.value));
-      this.trimTitle = item.title.split(' ').join('-');
-      this.router.navigate(['./product/', this.trimTitle, '/payment-mode'])
   }
- 
 
+  gotoPayment(){
+    window.location.href = "/payment-mode";
+  }
 }

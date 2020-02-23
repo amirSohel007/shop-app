@@ -49,7 +49,7 @@ export class ProductDetailsComponent implements OnInit {
       this.datashare.cartTotalItem.next(localStorage.getItem('cart'))
     }
     else {
-      alert('item already in cart')
+      alert('Already in cart ! add another item')
     }
   }
 
@@ -71,7 +71,7 @@ export class ProductDetailsComponent implements OnInit {
       localStorage.setItem('cart', JSON.stringify(getAllCartItem))
     }
     else {
-      console.log('prodcut already in cart')
+      console.log('Already in cart ! add another item')
     }
   }
 }

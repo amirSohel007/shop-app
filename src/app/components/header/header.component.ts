@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Data, ActivatedRoute, Router, ActivationEnd } from '@angular/router';
 import { DataShareService } from 'src/app/services/data-share.service';
 import { Route } from '@angular/compiler/src/core';
-import { Location } from '@angular/common';
-
 
 @Component({
   selector: 'app-header',
@@ -15,12 +13,13 @@ export class HeaderComponent implements OnInit {
   cartCount = 0
   getAllWhislist: any;
   totalAddItem: any
-  userInfo: any;
+  userInfo : any;
+  location : any;
   constructor(
     private datashare: DataShareService,
-    private location: Location,
-    private route: ActivatedRoute
-  ) {
+    private router : Router,
+    private route : ActivatedRoute
+    ) {
     this.updateWhislistval()
     this.updateCartval()
     this.getUserInfo();
@@ -33,7 +32,7 @@ export class HeaderComponent implements OnInit {
     this.datashare.favWhislistCount.subscribe(res => {
       if (res == null) {
         this.datashare.favWhislistCount.next(0)
-
+        
       }
       else {
         this.getAllWhislist = JSON.parse(res);
@@ -54,18 +53,14 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-  //remove cart items and update in localStroge and service observable
+//remove cart items and update in localStroge and service observable
   removeCartItem(index) {
-    let isCheckout = this.route.snapshot.firstChild.url[2].path
-    if (isCheckout == '/checkout') {
-      this.location.back()
-    }
-    this.totalAddItem.splice(index, 1);
+    this.totalAddItem.splice(index,1);
     localStorage.setItem('cart', JSON.stringify(this.totalAddItem));
     this.datashare.cartTotalItem.next(localStorage.getItem('cart'));
   }
 
-  getUserInfo() {
+  getUserInfo(){
     this.userInfo = JSON.parse(localStorage.getItem('userInfo'))
   }
 }
