@@ -17,9 +17,7 @@ export class DataShareService {
     return products
   }
 
-  coupons() {
-    return ['50DISCOUNT', 'NEWUSER']
-  }
+
 
   setWishlist() {
     return this.http.get(this.dataSource)

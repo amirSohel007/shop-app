@@ -5,13 +5,15 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './auth.guard';
+import { PaymentComponent } from './components/payment/payment.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
   { path: 'products', component: ProductsComponent },
   { path: 'product/:title', component: ProductDetailsComponent },
   { path: 'product/:title/:Checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
-  { path: 'register', component: RegisterComponent }
+  {path:'product/:title/:payment-mode', component:PaymentComponent,canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({

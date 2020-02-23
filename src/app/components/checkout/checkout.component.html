@@ -4,58 +4,143 @@
         <div class="row">
             <div class="col-sm-7">
                 <div class="product-details-image">
-                   <h3 class="mb-4">Shpping Details</h3>
-                   <form [formGroup]="checkoutForm">
-                           <div class="row">
-                               <div class="col-sm-12">
-                                   <div class="form-group">
-                                       <label for="">Name</label>
-                                       <input type="text" name="" id="" class="form-control" formControlName="name" placeholder="Enter Name">
+                    <div class="shipping-wrapper" *ngIf="!isAdress">
+                        <h3 class="mb-4">Shpping Details</h3>
+                        <form [formGroup]="checkoutForm" (ngSubmit)="orderPlace(singleItem)">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">Name</label>
+                                        <input type="text" name="" id="" class="form-control" formControlName="name"
+                                            placeholder="Enter Name">
                                     </div>
-                               </div>
-                           </div>
-                           <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label for="">Street</label>
-                                    <input type="text" name="" id="" class="form-control" placeholder="Street Address">
-                                 </div>
+                                </div>
                             </div>
-                           
-                           </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">Street</label>
+                                        <input type="text" name="" id="" class="form-control" formControlName="address"
+                                            placeholder="Street Address">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">City</label>
+                                        <select class="form-control" formControlName="city" id="">
+                                            <option value="" selected>Select city</option>
+                                            <option value="Delhi">Delhi</option>
+                                            <option value="Jaipur">Jaipur</option>
+                                            <option value="Udaipur">Udaipur</option>
+                                            <option value="Pune">Pune</option>
+                                            <option value="Mumbai">Mumbai</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">State</label>
+                                        <select formControlName="state" class="form-control" id="">
+                                            <option value="" selected>Select state</option>
+                                            <option value="Rajasthan">Rajasthan</option>
+                                            <option value="Gujrat">Gujrat</option>
+                                            <option value="Hariyana">Hariyana</option>
+                                            <option value="Uttar Pardesh">Uttar Pardesh</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">Country</label>
+                                        <select formControlName="country" class="form-control" id="">
+                                            <option value="" selected>Select country</option>
+                                            <option value="India">India</option>
+                                            <option value="USA">USA</option>
+                                            <option value="Pakistan">Pakistan</option>
+                                            <option value="Norway">Norway</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">Postel Code</label>
+                                        <input type="text" formControlName="postal" id="" class="form-control"
+                                            placeholder="Postal Code">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary cart-btn mt-3 w-100" (ngSubmit)="orderPlace(singleItem)"
+                                [disabled]="!checkoutForm.valid">Place
+                                Order</button>
+                        </form>
+                    </div>
 
-                           <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="">City</label>
-                                    <input type="text" name="" id="" class="form-control" placeholder="City Name">
-                                 </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="">State</label>
-                                    <input type="text" name="" id="" class="form-control" placeholder="State Name">
-                                 </div>
-                            </div>
-                           </div>
+                    <div *ngIf="isAdress" class="order-summary-box ml-4">
+                        <h5>Added Address</h5>
+                        <div class="summary-body p-4">
+                            <div class="border-0 item-row mb-0 pb-0">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h4>Name :</h4>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 text-right">{{userAddress.name}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h4>Address :</h4>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 text-right">{{userAddress.address}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h4>State :</h4>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 text-right">{{userAddress.state}}</p>
+                                    </div>
+                                </div>
 
-                           <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="">Country</label>
-                                    <input type="text" name="" id="" class="form-control" placeholder="Country Name">
-                                 </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="">Postel Code</label>
-                                    <input type="text" name="" id="" class="form-control" placeholder="Postal Code">
-                                 </div>
-                            </div>
-                           </div>
-                   <button class="btn btn-secondary cart-btn mt-3 w-100">Place Order</button>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h4>City :</h4>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 text-right">{{userAddress.city}}</p>
+                                    </div>
+                                </div>
 
-                   </form>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h4>Country :</h4>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 text-right">{{userAddress.country}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h4>Postel :</h4>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mb-0 text-right">{{userAddress.postal}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary cart-btn mt-3 w-100" (click)="orderPlace(singleItem)">Place
+                            Order</button>
+                    </div>
+                    
+
 
                 </div>
             </div>
@@ -63,8 +148,6 @@
                 <div class="order-summary-box ml-4">
                     <h5>Order Summary</h5>
                     <div class="summary-body p-4">
-
-
                         <div class="d-flex item-row justify-content-center">
                             <div class="item-img">
                                 <img class="img-fluid" [src]="singleItem.img" alt="">
@@ -73,17 +156,14 @@
                                 <h2>{{singleItem.title}}</h2>
                                 <p>Item Quentity : 1</p>
                             </div>
-
                             <div class="item-price text-right">
                                 <p class="mb-0">
                                     <del class="d-block text-muted">{{singleItem.price}} /-</del>
                                     <span>{{singleItem.newprice}} /-</span>
-                            </p>
+                                </p>
                             </div>
                         </div>
-
                         <div class="item-row ">
-                           
                             <div class="row">
                                 <div class="col-sm-6">
                                     <h4>Shipping :</h4>
@@ -108,39 +188,21 @@
                                     <p class="mb-0 text-right">50/-</p>
                                 </div>
                             </div>
-
-                              
-                            
                             <div class="item-title">
                                 <h2></h2>
                             </div>
                         </div>
-
                         <div class="item-row border-0 pb-0 mb-0">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <h4>Total Amount:</h4>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p class="mb-0 text-right full-amount">870/-</p>
+                                    <p class="mb-0 text-right full-amount">{{singleItem.newprice}}/-</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- <div class="promo-code"> -->
-                    <!-- <form [formGroup]="couponForm" (ngSubmit)="onSubmit()"> -->
-                    <!-- <label for="" class="text-info d-block">Apply '50DISCOUND' to get 50 of on your item
-                        </label>
-                        <input type="text" class="form-control" placeholder="APPLY COUPON">
-                        <button class="btn btn-secondary">APPLY COUPON</button> -->
-                    <!-- <p class="d-block mt-2 error text-danger w-100"
-                                *ngIf="couponForm.controls['coupon'].hasError('required') && couponForm.controls['coupon'].touched">
-                                Please enter a coupon
-                            </p> -->
-                    <!-- <p *ngIf="validCoupon">valid applied</p> -->
-                    <!-- </form> -->
-                    <!-- </div> -->
                 </div>
             </div>
         </div>

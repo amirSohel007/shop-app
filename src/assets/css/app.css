@@ -3,7 +3,7 @@
 body {font-family: 'Nunito', sans-serif;}
 .logo {font-family: 'Pacifico', cursive;}
 header {
-    background: #2874f0;
+    background: #000000;
     padding: 8px 0;
     position: sticky;
     z-index: 99;
@@ -31,7 +31,8 @@ a.navbar-brand.logo {
 
 .banner {
     height: 350px;
-    background: url('https://images.pexels.com/photos/1778412/pexels-photo-1778412.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    background: url('https://www.mastertronic.com.br/media/catalog/category/MasterTronic-Banner-JS-Macbook_1140.jpg');
+    position: relative;
     background-position: center;
     background-size: cover;
 }
@@ -99,24 +100,13 @@ a.navbar-brand.logo {
 }
 
 .product-image img {
-    height: 290px;
     width: 100%;
-    object-fit: cover;
     position: relative;
     transition: all 0.3s;
+    height: 170px;
+    object-fit: contain;
 }
 
-.product-wrapper:hover .product-image img {
-    transition: all 0.3s;
-    transform: scale(1.1);
-}
-
-.product-image{overflow: hidden;  transition: all 0.3s;}
-
-
-.product-wrapper:hover .product-image::after {
-    opacity: 1;
-}
 
 .title-header::after {
     position: absolute;
@@ -267,8 +257,6 @@ ul.dropdown-cart li .item-right button{
 
 .item-left img {
     width: 45px;
-    height: 45px;
-    object-fit: cover;
 }
 
 .item-right button {
@@ -306,11 +294,12 @@ ul.dropdown-cart li .item-right button{
     font-size: 17px;
 }
 
-.item-img img {
-    height: 80px;
-}
+
 .item-img {
     width: 110px;
+}
+.img-fluid {
+    padding-right: 12px;
 }
 
 .item-price {

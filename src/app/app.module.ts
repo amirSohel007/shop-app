@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './auth.guard';
+import { PaymentComponent } from './components/payment/payment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { AuthGuard } from './auth.guard';
     ProductsComponent,
     ProductDetailsComponent,
     CheckoutComponent,
-    RegisterComponent
+    RegisterComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
